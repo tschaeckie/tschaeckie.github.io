@@ -43,3 +43,9 @@ main {
 main p {
     text-align: justify;
 }
+
+main figure {
+    margin-left: 0; /* bei 0 nie Prozent angeben */
+    width: 9000px; /*wenn Bild kleiner ist auf 100% setzen, resizen vorher nötig */
+    border: 1px solid black;
+}
