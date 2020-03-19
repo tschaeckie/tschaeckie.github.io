@@ -76,3 +76,12 @@ footer .next {
     float: right;
 }
 
+@media screen and (max-width: 900px) {
+    main {
+        max-width: 90%;
+    }
+    header img.banner { /*kein Leerzeichen bei img.banner */
+        width: 100vw; /*Prozentualwerte (hier Höhe nicht gesetzt) vw viewpiont width, vh viewpoint hight */
+    }
+}
+
