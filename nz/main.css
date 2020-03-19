@@ -28,6 +28,7 @@ header nav img {
 
 a:link, a:visited {
     color: black;
+    /* text-decoration: none; Unterstrich bei Links loswerden */
 }
 
 header nav address {
