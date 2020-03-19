@@ -61,3 +61,8 @@ main figure {
 main ul {
     list-style-type: square;
 }
+
+footer {
+    width: 100%;
+    padding: 1em 0 3em 0; /* Ränder für oben rechts unten links */
+}
