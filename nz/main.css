@@ -2,23 +2,28 @@ body {
     /* ein Kommentar */
     max-width: 1280px;
     margin: auto;
-    font-family: 'Open Sans', sans-serif; /*wenn open sans nicht verfügbar, dann sans-serif */
+    font-family: 'Open Sans', sans-serif;
+    /*wenn open sans nicht verfügbar, dann sans-serif */
 }
+
 header {
     text-align: center;
 }
+
 /*evtl hier eine Änderung im Index verpasst */
 
 header p {
-    font-size: 0.8em; 
+    font-size: 0.8em;
     font-weight: bold;
     text-align: right;
     padding-right: 1em;
     margin-top: -2em;
-} 
+}
 
 
-.white, .white a:link, .white a:visited {
+.white,
+.white a:link,
+.white a:visited {
     color: white;
 }
 
@@ -26,7 +31,8 @@ header nav img {
     border-radius: 50%;
 }
 
-a:link, a:visited {
+a:link,
+a:visited {
     color: black;
     /* text-decoration: none; Unterstrich bei Links loswerden */
 }
@@ -36,7 +42,7 @@ header nav address {
     font-style: italic;
 }
 
-main { 
+main {
     max-width: 70%;
     margin: auto;
 }
@@ -47,10 +53,14 @@ main p {
 }
 
 main figure {
-    margin-left: 0; /* bei 0 nie Prozent angeben */
-    width: 9000px; /*wenn Bild kleiner ist auf 100% setzen, resizen vorher nötig */
+    margin-left: 0;
+    /* bei 0 nie Prozent angeben */
+    width: 9000px;
+    /*wenn Bild kleiner ist auf 100% setzen, resizen vorher nötig */
     border: 1px solid black;
-} /* Bildunterschrift ist bei mir mit im Rahmen? */
+}
+
+/* Bildunterschrift ist bei mir mit im Rahmen? */
 
 /* Raute ist ID, Punkt ist Klasse */
 #map {
@@ -65,7 +75,8 @@ main ul {
 
 footer {
     width: 100%;
-    padding: 1em 0 3em 0; /* Ränder für oben rechts unten links */
+    padding: 1em 0 3em 0;
+    /* Ränder für oben rechts unten links */
 }
 
 footer .back {
@@ -80,8 +91,10 @@ footer .next {
     main {
         max-width: 90%;
     }
-    header img.banner { /*kein Leerzeichen bei img.banner */
-        width: 100vw; /*Prozentualwerte (hier Höhe nicht gesetzt) vw viewpiont width, vh viewpoint hight */
+
+    header img.banner {
+        /*kein Leerzeichen bei img.banner */
+        width: 100vw;
+        /*Prozentualwerte (hier Höhe nicht gesetzt) vw viewpiont width, vh viewpoint hight */
     }
 }
-
