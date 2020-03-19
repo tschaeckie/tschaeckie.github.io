@@ -7,6 +7,7 @@ body {
 header {
     text-align: center;
 }
+/*evtl hier eine Änderung im Index verpasst */
 
 header p {
     font-size: 0.8em; 
@@ -19,4 +20,8 @@ header p {
 
 .white, .white a:link, .white a:visited {
     color: white;
+}
+
+header nav img {
+    border-radius: 50%;
 }
