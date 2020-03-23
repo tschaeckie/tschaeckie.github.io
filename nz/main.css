@@ -50,6 +50,7 @@ main {
 main p {
     text-align: justify;
     font-family: 'open sans condensed', cursive;
+    font-size: 1.1em;
 }
 
 main figure {
