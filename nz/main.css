@@ -61,6 +61,11 @@ main figure {
     border: 1.5px solid black;
 }
 
+main figure figcaption {
+    font-size: 0.7em;
+    text-align: center;
+}
+
 /* Bildunterschrift ist bei mir mit im Rahmen? */
 
 /* Raute ist ID, Punkt ist Klasse */
