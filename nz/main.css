@@ -53,11 +53,12 @@ main p {
 }
 
 main figure {
-    margin-left: 0;
+    margin-left: 5%;
     /* bei 0 nie Prozent angeben */
-    width: 9000px;
-    /*wenn Bild kleiner ist auf 100% setzen, resizen vorher nötig */
-    border: 1px solid black;
+    width: 700px;
+    /* width: 9000px Eingabe im Kurs (am 19.3.20); Klaus: wenn Bild kleiner ist auf 100% setzen, resizen vorher nötig --> resizen done am 23.3.20 
+    trotz resize funktioniert Angabe mit 100% nicht? muss width: 700px setzen (Bild ist genauso groß)*/
+    border: 1.5px solid black;
 }
 
 /* Bildunterschrift ist bei mir mit im Rahmen? */
