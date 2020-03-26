@@ -22,4 +22,5 @@ let fullname = 'Jeffrey "The Dude" Lebowski';
 console.log(fullname);
 // zur Anschauung, dass beide Anführungszeichenarten verwendet werden können
 
-
+let template = `Dein Highscore sind ${highscore} Punkte`;
+console.log(template);
