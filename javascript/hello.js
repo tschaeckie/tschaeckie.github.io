@@ -35,5 +35,13 @@ let age = 17;
 console.log("über 18?", age > 18);
 //Inhalt der Variable wird überprüft
 
+let participants = [ "John", "Jane", "Max"];
+console.log(participants);
+console.log("Einträge im Array: ", participants.length);
+console.log(participants[1]);
+//bei Arrays fängt die Zählung bei 0 an, deshalb wird in Konsole Jane angezeigt
+
+
+
 
 
