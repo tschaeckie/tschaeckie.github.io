@@ -101,3 +101,17 @@ function showAge(birthYear) {
 
 showAge(1995);
 showAge(1927);
+
+function calcAge(birthYear) {
+    return 2020 - birthYear;
+}
+
+console.log(`Max ist ${calcAge (1977)} Jahre alt (ca.)`);
+console.log(`Jackie ist ${calcAge (1995)} Jahre alt (ca.)`);
+
+let birthYears = [1927, 1964, 1980, 1995, 2004];
+console.log(birthYears);
+
+birthYears.forEach(year => {
+    console.log(`Geboren ${year}, heute ca. ${calcAge(year)} Jahre alt.`);
+});
