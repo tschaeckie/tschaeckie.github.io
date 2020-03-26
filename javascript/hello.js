@@ -154,6 +154,7 @@ let indetedParas = document.querySelectorAll(".indent");
 console.log(indetedParas);
 
 indetedParas.forEach((para, index) => {
+    console.log(`Data attribut LAT ${para.dataset.lat}`)
         para.innerHTML = `Absatz ${index}`;
         if ( index % 2 == 0) {
             para.style.color = "red";
