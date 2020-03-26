@@ -6,7 +6,7 @@
 // alert(message);
 
 const LINK_COLOR = "#ff000";
-console.log("Link bitte in der Farbe", LINK_COLOR); 
+console.log("Link bitte in der Farbe", LINK_COLOR);
 // f12 im Firefox drücken --> Konsole ist Developer Tools
 
 let highscore = 520233
@@ -14,7 +14,7 @@ console.log(highscore / 10);
 // numerische Variable
 
 let firstname = "John";
-let lastname ='Smith';
+let lastname = 'Smith';
 console.log("Name: ", firstname, lastname);
 //Zeichenketten mit Anführungszeichen einfach oder doppelt - egal
 
@@ -35,7 +35,7 @@ let age = 17;
 console.log("über 18?", age > 18);
 //Inhalt der Variable wird überprüft
 
-let participants = [ "John", "Jane", "Max"];
+let participants = ["John", "Jane", "Max"];
 console.log(participants);
 console.log("Einträge im Array: ", participants.length);
 console.log(participants[1]);
@@ -61,8 +61,8 @@ console.log(user);
 // Rechnen
 let a = 2;
 let b = 4;
-console.log(a+b);
-console.log(b/(a-1));
+console.log(a + b);
+console.log(b / (a - 1));
 a++;
 console.log(a);
 
@@ -78,7 +78,7 @@ console.log(a);
 // }
 
 //Schleifen: for Schleife / i=Variable, 10 Durchläufe
-for (let i=0; i<10; i++) {
+for (let i = 0; i < 10; i++) {
     console.log(`Schleife ${i}`);
 }
 
@@ -116,10 +116,21 @@ birthYears.forEach(year => {
     console.log(`Geboren ${year}, heute ca. ${calcAge(year)} Jahre alt.`);
 });
 
-let users = [
-    { firstname: "John", lastname: "Smith", birthYear: 1960},
-    { firstname: "Jackie", lastname: "Kowalski", birthYear: 1995},
-    { firstname: "Max", lastname: "Mustermann", birthYear: 2001},
+let users = [{
+        firstname: "John",
+        lastname: "Smith",
+        birthYear: 1960
+    },
+    {
+        firstname: "Jackie",
+        lastname: "Kowalski",
+        birthYear: 1995
+    },
+    {
+        firstname: "Max",
+        lastname: "Mustermann",
+        birthYear: 2001
+    },
 ];
 
 console.log(users);
@@ -130,3 +141,9 @@ users.forEach(users => {
 //letztes nochmal anschauen!!!
 
 
+
+//html mit Konsole verlinken, danach Auswahl der Absätze möglich
+let firstParagraph = document.querySelector("#pFirst");
+console.log(firstParagraph);
+// firstParagraph.remove();
+firstParagraph.innerHTML = "Test";
