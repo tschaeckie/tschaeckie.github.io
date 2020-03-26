@@ -44,6 +44,19 @@ console.log(participants[1]);
 let gameHighscores = [2099, 3010, 3333, 5000];
 console.log(gameHighscores);
 
+//Objekte mit geschwungener Klammer, unterschiedliche Properties/Eigenschaften zusammenfassen
+let user = {
+    firstname: "John",
+    lastname: "Smith",
+    age: 25
+};
+
+console.log(user);
+console.log(user.firstname);
+user.highscore = 200;
+console.log(user);
+user["highscore ever"] = 400;
+console.log(user);
 
 
 
