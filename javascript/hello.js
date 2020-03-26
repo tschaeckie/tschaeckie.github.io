@@ -92,3 +92,12 @@ participants.forEach(participant => {
     console.log(`Teilnehmer*in ${participant}`);
 });
 
+
+//Funktionen
+
+function showAge(birthYear) {
+    console.log(`Du bist ca. ${2020 - birthYear} Jahre alt.`);
+}
+
+showAge(1995);
+showAge(1927);
