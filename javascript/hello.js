@@ -24,3 +24,16 @@ console.log(fullname);
 
 let template = `Dein Highscore sind ${highscore} Punkte`;
 console.log(template);
+// wenns einen Fehler gibt, zeigt die Konsole an, in welcher Zeile
+//nur mit backticks wird $ als Variable interpretiert
+
+let isOver18 = true;
+console.log(isOver18);
+//minus nicht verwenden in der Programmiersprache, deswegen Unterstrich oder Großbuchstanben verwenden
+
+let age = 17;
+console.log("über 18?", age > 18);
+//Inhalt der Variable wird überprüft
+
+
+
