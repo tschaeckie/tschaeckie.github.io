@@ -77,8 +77,13 @@ console.log(a);
 //     console.log("Leider unter 18");
 // }
 
-//Schleifen: for Schleife
+//Schleifen: for Schleife / i=Variable, 10 Durchläufe
 for (let i=0; i<10; i++) {
     console.log(`Schleife ${i}`);
 }
 
+//Schleife über Array drüberlaufen lassen, Zählervariable auf 0 gesetzt
+for (let j = 0; j < participants.length; j++) {
+    const participant = participants[j];
+    console.log(`Teilnehmer*in ${j} ${participant}`);
+}
