@@ -41,6 +41,8 @@ console.log("Einträge im Array: ", participants.length);
 console.log(participants[1]);
 //bei Arrays fängt die Zählung bei 0 an, deshalb wird in Konsole Jane angezeigt
 
+let gameHighscores = [2099, 3010, 3333, 5000];
+console.log(gameHighscores);
 
 
 
