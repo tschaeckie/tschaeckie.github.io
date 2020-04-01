@@ -10,7 +10,7 @@ L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
 let marker = L.marker([-36.878091, 174.764383]).addTo(mymap);
 //kann man die Farbe des Markers auch ändern?
 
-marker.bindPopup("<b>Mount Eden Summit</b><br>Gipfel des Mount Eden Vulcano Walks").openPopup();
+marker.bindPopup('<b>Mount Eden Summit</b><br>Gipfel des "Mount Eden Vulcano Walk"').openPopup();
 //gibt es auch ein Popup, das sich öffnet, wenn man mit der Maus darüber fährt??
 //Lage des Popups variabel? - rechts, links, oben, unten des markers?
 
