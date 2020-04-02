@@ -1,6 +1,8 @@
 //wofür steht die 13 am Ende?
 let map = document.querySelector("#map");
 var mymap = L.map('map').setView([-36.860055, 174.760163], 13);
+//auch mit center möglich (statt Möglichkeit mit zoom in der Klammer)
+
 
 L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
     maxZoom: 17,
@@ -9,6 +11,9 @@ L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
 
 let marker = L.marker([-36.878091, 174.764383]).addTo(mymap);
 //kann man die Farbe des Markers auch ändern?
+//L.marker bedeuted marker Aufruf
+//die Koordinaten können durch mymap.dataset.lat, mymap.dataset.lng aufgerufen werden
+
 
 marker.bindPopup('<b>Mount Eden Summit</b><br>Gipfel des "Mount Eden Vulcano Walk"').openPopup();
 //gibt es auch ein Popup, das sich öffnet, wenn man mit der Maus darüber fährt??
