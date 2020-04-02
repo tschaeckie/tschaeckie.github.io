@@ -48,3 +48,7 @@ let drawCircles = function (data) {
         circle.bindPopup(`${reg}: ${val}`);
     }
 };
+
+drawCircles(CONFIRMED);
+//drawCircles(RECOVERED);
+//drawCirclces(DEATHS);
