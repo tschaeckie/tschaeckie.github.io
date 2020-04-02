@@ -28,3 +28,7 @@ var circle = L.circle([-36.848455, 174.762183], {
 
 circle.bindPopup("<b>Auckland City Center</b>")
 //kann man immer nur ein Popup .openPopup öffnen??
+
+//leaflet providers --> quellcode von github (Installation)
+L.titleLayer.provider
+//nicht ganz mitgekommen - abgleichen im github
