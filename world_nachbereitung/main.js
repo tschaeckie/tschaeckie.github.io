@@ -17,7 +17,7 @@ let map = L.map("map", {
 //Google: Leaflet Providers: https://github.com/leaflet-extras/leaflet-providers
 //Providers Previewed
 L.control.layers({
-    "OpenTopoMap" :  L.titleLayer.provider("OpenTopoMap"),
+    "OpenTopoMap" :  L.tileLayer.provider("OpenTopoMap"),
     "OpenStreetMap.Mapnik" : L.tileLayer.provider("OpenStreetMap.Mapnik"),
 
 
