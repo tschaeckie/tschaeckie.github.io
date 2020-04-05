@@ -17,10 +17,12 @@ let map = L.map("map", {
 //Google: Leaflet Providers: https://github.com/leaflet-extras/leaflet-providers
 //Providers Previewed
 L.control.layers({
+    "Esri.WorldTopoMap": startLayer,
     "OpenTopoMap" :  L.tileLayer.provider("OpenTopoMap"),
     "OpenStreetMap.Mapnik" : L.tileLayer.provider("OpenStreetMap.Mapnik"),
-
-
-
-
+    "Esri.NatGeoWorldMap" : L.tileLayer.provider("Esri.NatGeoWorldMap"),
+    "OpenMapSurfer.Roads" :  L.tileLayer.provider("OpenMapSurfer.Roads"),
+    "Stamen.Watercolor" :  L.tileLayer.provider("Stamen.Watercolor"),
+    "NASAGIBS.ViirsEarthAtNight2012" :  L.tileLayer.provider("NASAGIBS.ViirsEarthAtNight2012"),
+    "NASAGIBS.ModisTerraBands367CR" :  L.tileLayer.provider("NASAGIBS.ModisTerraBands367CR"),
 }).addTo(map)
