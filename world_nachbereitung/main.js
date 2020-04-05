@@ -25,4 +25,4 @@ L.control.layers({
     "Stamen.Watercolor" :  L.tileLayer.provider("Stamen.Watercolor"),
     "NASAGIBS.ViirsEarthAtNight2012" :  L.tileLayer.provider("NASAGIBS.ViirsEarthAtNight2012"),
     "NASAGIBS.ModisTerraBands367CR" :  L.tileLayer.provider("NASAGIBS.ModisTerraBands367CR"),
-}).addTo(map)
+}).addTo(map);

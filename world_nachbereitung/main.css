@@ -1,5 +1,6 @@
 body {
-    overflow: hidden;
+   /* overflow: hidden; falsch, weil unten rechts Leaflet Quellen-Beschriftung halb angezeigt wird*/
+   margin: 0; /* Leaflet Quellen-Beschriftung wird jetzt ganz angezeigt */
 }
 
 #map {
