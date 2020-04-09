@@ -116,7 +116,7 @@ playButton.onclick = function () {
     if (runningAnimation) {
         window.clearInterval(runningAnimation);
         playButton.value = "▶"
-        running Animation = null;
+        runningAnimation = null;
     } else {   
         runningAnimation = window.setInterval(function () {
         //console.log(value,"nach 250 ms");
