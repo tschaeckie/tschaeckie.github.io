@@ -49,10 +49,6 @@ let drawCircles = function (dat) {
 
     circleGroup.clearLayers();
 
-    //Kreisgröße sortieren
-    data.sort()
-
-
     //console.log(CONFIRMED);
     for (let i = 1; i < data.length; i++) {
         let row = data[i];
@@ -106,5 +102,18 @@ drawCircles(CONFIRMED);
 let playButton = document.querySelector("#play");
 
 playButton.onclick = function () {
-    console.log("clicked");
-}
+
+    let value = slider.min;
+
+    let runningAnimation = null;
+    runningAnimation = window.setInterval(function () {
+    //console.log(value,"nach 250 ms");
+    slider.value = value;
+    drawCircles();
+    value++;
+
+    if (value > slider.max) {
+        window.clearInterval(runningAnimation);
+        }
+    }, 250)
+};
