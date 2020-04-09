@@ -23,7 +23,11 @@ L.control.layers({
 }).addTo(map);
 //5-10 Layer hinzufügen https://leaflet-extras.github.io/leaflet-providers/preview/
 
-let drawCircles = function (data) {
+let drawCircles = function (dat) {
+    let data = CONFIRMED;
+    let header = CONFIRMED[0];
+    let index = header.length -1;
+
     //console.log(CONFIRMED);
     for (let i = 1; i < data.length; i++) {
         let row = data[i];
@@ -31,7 +35,7 @@ let drawCircles = function (data) {
         let reg = `${row[0]} ${row[1]}`;
         let lat = row[2];
         let lng = row[3];
-        let val = row[row.length - 1];
+        let val = row[index];
        // let mrk = L.marker([lat, lng], {
        //     radius: (val / 2) * 0,
 
