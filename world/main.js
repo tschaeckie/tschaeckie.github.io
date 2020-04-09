@@ -28,6 +28,8 @@ let drawCircles = function (dat) {
     let header = CONFIRMED[0];
     let index = header.length -1;
 
+    //DAtum & Thema anzeigen
+    document.querySelector("#datum").innerHTML = `am ${header[index] - ${topic}`;
     //console.log(CONFIRMED);
     for (let i = 1; i < data.length; i++) {
         let row = data[i];
