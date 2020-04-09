@@ -49,6 +49,10 @@ let drawCircles = function (dat) {
 
     circleGroup.clearLayers();
 
+    //Kreisgröße sortieren
+    data.sort()
+
+
     //console.log(CONFIRMED);
     for (let i = 1; i < data.length; i++) {
         let row = data[i];
@@ -58,7 +62,7 @@ let drawCircles = function (dat) {
         let lng = row[3];
         let val = row[index];
 
-        if (val === 0) {
+        if (val === "0") {
             continue;
             //console.log(val)
         }
