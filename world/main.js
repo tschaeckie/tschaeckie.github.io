@@ -30,7 +30,7 @@ let drawCircles = function (dat) {
     let options = document.querySelector("#pulldown").options;
     let value = options[options.selectedIndex].value;
     let label = options[options.selectedIndex].text;
-    console.log(value,label,options)
+    console.log(value,label,options);
 
     //DAtum & Thema anzeigen
     document.querySelector("#datum").innerHTML = `am ${header[index]} - ${topic}`;
