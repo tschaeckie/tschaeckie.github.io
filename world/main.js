@@ -102,3 +102,9 @@ slider.onchange = function () {
 drawCircles(CONFIRMED);
 //drawCircles(RECOVERED);
 //drawCircles(DEATHS);
+
+let playButton = document.querySelector("#play");
+
+playButton.onclick = function () {
+    console.log("clicked");
+}
