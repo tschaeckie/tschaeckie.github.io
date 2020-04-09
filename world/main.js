@@ -46,7 +46,7 @@ let drawCircles = function (dat) {
 
     //Datum & Thema anzeigen
     document.querySelector("#datum").innerHTML = `am ${header[index]} - ${label}`;
-    
+
     circleGroup.clearLayers();
 
     //console.log(CONFIRMED);
@@ -57,8 +57,14 @@ let drawCircles = function (dat) {
         let lat = row[2];
         let lng = row[3];
         let val = row[index];
-       // let mrk = L.marker([lat, lng], {
-       //     radius: (val / 2) * 0,
+
+        if (val === 0) {
+            continue;
+            //console.log(val)
+        }
+
+        // let mrk = L.marker([lat, lng], {
+        //     radius: (val / 2) * 0,
 
         //}).addTo(map);
         //mrk.bindPopup(`${reg}: ${val}`);
@@ -75,7 +81,7 @@ let drawCircles = function (dat) {
     }
 };
 
-document.querySelector("#pulldown").onchange = function() {
+document.querySelector("#pulldown").onchange = function () {
     drawCircles();
 };
 
