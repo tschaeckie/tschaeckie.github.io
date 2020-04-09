@@ -27,9 +27,15 @@ let drawCircles = function (dat) {
     let data = CONFIRMED;
     let header = CONFIRMED[0];
     let index = header.length -1;
+    let topic = "bestätigte Fälle";
+    let options = document.querySelector("#pulldown").options;
+    let value = options[options.selectedIndex].value;
+    let label = options[options.selectedIndex].text;
+    console.log(value,label,options)
 
     //DAtum & Thema anzeigen
-    document.querySelector("#datum").innerHTML = `am ${header[index] - ${topic}`;
+    document.querySelector("#datum").innerHTML = `am ${header[index]} - ${topic}`;
+    
     //console.log(CONFIRMED);
     for (let i = 1; i < data.length; i++) {
         let row = data[i];
@@ -53,6 +59,10 @@ let drawCircles = function (dat) {
         }).addTo(circleGroup);
         circle.bindPopup(`${reg}: ${val}`);
     }
+};
+
+document.querySelector("#pulldown").onchange = function() {
+    drawCircles();
 };
 
 drawCircles(CONFIRMED);
