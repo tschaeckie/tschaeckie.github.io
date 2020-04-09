@@ -68,7 +68,7 @@ let drawCircles = function (dat) {
         //r= WURZEL(A/PI)
         let r = Math.sqrt(val / Math.PI);
         let circle = L.circleMarker([lat, lng], {
-            radius: r
+            radius: r,
             color: color
         }).addTo(circleGroup);
         circle.bindPopup(`${reg}: ${val}`);
