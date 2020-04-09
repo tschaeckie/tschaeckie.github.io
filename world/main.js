@@ -100,20 +100,35 @@ drawCircles(CONFIRMED);
 //drawCircles(DEATHS);
 
 let playButton = document.querySelector("#play");
+let runningAnimation = null;
 
 playButton.onclick = function () {
+    let value;
+    if (slider.value == slider.max) {
+        value = slider.min;
+    } else {
+        value = slider.value;
+    }
 
-    let value = slider.min;
 
-    let runningAnimation = null;
-    runningAnimation = window.setInterval(function () {
-    //console.log(value,"nach 250 ms");
-    slider.value = value;
-    drawCircles();
-    value++;
+    playButton.value = "⏸"; //Wikipedia Media Control SYmbols
 
-    if (value > slider.max) {
+    if (runningAnimation) {
         window.clearInterval(runningAnimation);
-        }
-    }, 250)
+        playButton.value = "▶"
+        running Animation = null;
+    } else {   
+        runningAnimation = window.setInterval(function () {
+        //console.log(value,"nach 250 ms");
+        slider.value = value;
+        drawCircles();
+        value++;
+
+            if (value > slider.max) {
+                window.clearInterval(runningAnimation);
+                playButton.value = "▶";
+                runningAnimation = null;
+            }
+        }, 250)
+    }
 };
