@@ -28,7 +28,7 @@ L.control.layers({
 
 let sightUrl = "https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:SPAZIERPUNKTOGD%20&srsName=EPSG:4326&outputFormat=json"
 
-let sights = L.geoJson.ajax(walkUrl, {
+let sights = L.geoJson.ajax(sightUrl, {
     pointToLayer: function (point, latlng) {
         let icon = L.icon({
             iconUrl: 'icons/sight.svg',
