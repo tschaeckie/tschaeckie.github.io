@@ -50,3 +50,12 @@ walk.on("data:loaded", function() {
     console.log('data loaded!');
     map.fitBounds(walkGroup.getBounds());
 });
+
+
+let wandern = "https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:WANDERWEGEOGD&srsName=EPSG:4326&outputFormat=json"
+
+L.geoJson.ajax(wandern, {
+    style: function() {
+        return { color: "green", weight: 5};
+    }
+}).addTo(map);
