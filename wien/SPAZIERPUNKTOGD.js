@@ -1,6 +1,6 @@
 // Datenquelle: https://www.data.gv.at/katalog/dataset/stadt-wien_stadtspaziergangwien/resource/1367011e-e119-49f3-93da-2de02e72a61c // 
 
-{
+const SPAZIERGANG = {
     "type": "FeatureCollection",
     "totalFeatures": 126,
     "features": [{
@@ -2152,4 +2152,4 @@
             "name": "urn:ogc:def:crs:EPSG::4326"
         }
     }
-}
+};
