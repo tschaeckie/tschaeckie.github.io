@@ -8,6 +8,8 @@ let map = L.map("map", {
     ]
 });
 
+let walkGroup = L.featureGroup().addTo(map);
+
 L.control.layers({
     "BasemapAT.grau": startLayer,
     "BasemapAT": L.tileLayer.provider("BasemapAT"),
@@ -20,6 +22,8 @@ L.control.layers({
         L.tileLayer.provider("BasemapAT.orthofoto"),
         L.tileLayer.provider("BasemapAT.overlay")
     ])
+}, {
+    "Stadtspaziergang (Punkte)": walkGroup
 }).addTo(map);
 
 let walkUrl = "https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:SPAZIERPUNKTOGD%20&srsName=EPSG:4326&outputFormat=json"
@@ -28,7 +32,7 @@ let walk = L.geoJson.ajax(walkUrl, {
     pointToLayer: function(point, latlng) {
         let icon = L.icon({
             iconUrl: 'icons/sight.svg',
-            iconSize: [64, 64]
+            iconSize: [32, 32]
         });
         let marker = L.marker(latlng, {
             icon: icon
@@ -40,4 +44,9 @@ let walk = L.geoJson.ajax(walkUrl, {
         return marker;
         // Bsp. Circle Marker: return L.circleMarker(latlng, { color: "red", radius: 8});
     }
-}).addTo(map);
+}).addTo(walkGroup);
+
+walk.on("data:loaded", function() {
+    console.log('data loaded!');
+    map.fitBounds(walkGroup.getBounds());
+});
