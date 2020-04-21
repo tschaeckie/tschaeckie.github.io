@@ -66,8 +66,10 @@ let wandern = "https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&
 L.geoJson.ajax(wandern, {
     style: function () {
         return {
-            color: "green",
-            weight: 5
+            color: "black",
+            weight: 3,
+            //gestrichelte Linien
+            dashArray: 5,
         };
     },
     //Popup Bezeichnung des Weges; im Feature nur den Bezeichnungstext gefunden, wo ist der NAME???
