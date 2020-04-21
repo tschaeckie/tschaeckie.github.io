@@ -69,6 +69,12 @@ L.geoJson.ajax(wandern, {
             color: "green",
             weight: 5
         };
+    },
+    //Popup Bezeichnung des Weges; im Feature nur den Bezeichnungstext gefunden, wo ist der NAME???
+    onEachFeature: function (feature, layer) {
+        //console.log("Feature: ", feature);
+        layer.bindPopup(`<h3>${feature.properties.BEZ_TEXT}</h3>
+        `);
     }
 }).addTo(map);
 
@@ -93,7 +99,7 @@ L.geoJson.ajax(heritage, {
         // };
     },
     onEachFeature: function (feature, layer) {
-        console.log("Feature: ", feature);
+        //console.log("Feature: ", feature);
         layer.bindPopup(`<h3>${feature.properties.NAME}</h3>
         <p>${feature.properties.INFO}</p>
         `);
