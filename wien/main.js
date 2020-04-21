@@ -74,16 +74,23 @@ L.geoJson.ajax(wandern, {
 
 
 //Flächen
+// Versuch Farbflächen der Zonen zu unterscheiden ausgeblendet
 
 let heritage = "https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:WELTKULTERBEOGD&srsName=EPSG:4326&outputFormat=json"
-let puffer = 
+// let zone = feature.properties.TYP
 
 L.geoJson.ajax(heritage, {
     style: function () {
         return {
-           color: "salmon",
-           fillOpacity: 0.3
+            color: "salmon",
+            fillOpacity: 0.3
         };
+        // 
+        // if (zone === "1") {
+        //     color: "red";
+        // } else {
+        //     color: "yellow";
+        // };
     },
     onEachFeature: function (feature, layer) {
         console.log("Feature: ", feature);
