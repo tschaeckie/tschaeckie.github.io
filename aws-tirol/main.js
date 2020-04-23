@@ -8,7 +8,7 @@ let map = L.map("map", {
 
 let overlay = {
     stations: L.featureGroup(),
-    temperature: L.featureGroup() 
+    temperature: L.featureGroup()
 }
 
 L.control.layers({
@@ -31,7 +31,7 @@ L.control.layers({
 let awsUrl = "https://aws.openweb.cc/stations";
 
 let aws = L.geoJson.ajax(awsUrl, {
-     filter: function(feature) {
+    filter: function (feature) {
         //console.log("Feature in filter: ", feature);
         // if (feature.geometry.coordinates[2] > 3000) {
         //     return true;
@@ -61,17 +61,17 @@ let aws = L.geoJson.ajax(awsUrl, {
     }
 }).addTo(overlay.stations);
 
-let drawTemperature = function(jsonData) {
+let drawTemperature = function (jsonData) {
     console.log("aus der Funktion", jsonData);
     L.geoJson(jsonData, {
-        filter: function(feature) {
+        filter: function (feature) {
             return feature.properties.LT
         },
-        pointToLayer: function(feature, latlng) {
+        pointToLayer: function (feature, latlng) {
             return L.marker(latlng, {
                 title: `${feature.properties.name} (${feature.geometry.coordinates[2]}m)`
                 icon: L.divIcon({
-                    html: `<div>${feature.properties.LT.toFixed(1)}</div>` ,
+                    html: `<div>${feature.properties.LT.toFixed(1)}</div>`,
                     className: "ignore-me" // dirty hack
                 })
             })
@@ -79,7 +79,13 @@ let drawTemperature = function(jsonData) {
     }).addTo(overlay.temperature);
 };
 
-aws.on("data:loaded", function() {
+//1. neues overlay definieren, zu L.control.layers hinzufügen und default anzeigen
+//2. die Funktion drawWind als 1:1 Kopie von drawTemperature mit Anpassungen
+//3. einen neuen Stil .label-wind im CSS von main.css
+//4. die function drawWind in data:loaded aufrufen
+//5. Zusatz Challenge: Wind in km/h, nicht in m/s
+
+aws.on("data:loaded", function () {
     //console.log(aws.toGeoJSON());
     drawTemperature(aws.toGeoJSON()); //Aufrufen der Funktion draw.Temperature
     map.fitBounds(overlay.stations.getBounds());
