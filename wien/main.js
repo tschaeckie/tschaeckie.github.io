@@ -103,16 +103,16 @@ let heritage = "https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature
 
 L.geoJson.ajax(heritage, {
     style: function (feature) {
-        if (feature.properties.TYP === "2") {
-            return {
-                color: "yellow",
-                fillOpacity: 0.3
-            };
-        } else if (feature.properties.TYP === "1") {
+        if (feature.properties.TYP === "1") {
             return {
                 //warum Innere Stadt Kernzone geld umrahmt?
                 color: "red",
-                fillOpacity: 0.3
+                fillOpacity: 0.8
+            };
+        } else if (feature.properties.TYP === "2") {
+            return {
+                color: "yellow",
+                fillOpacity: 0.3,
             };
         }
         // return {
