@@ -30,20 +30,21 @@ let awsUrl = "https://aws.openweb.cc/stations";
 
 let aws = L.geoJson.ajax(awsUrl, {
      filter: function(feature) {
-        console.log("Feature in filter: ", feature);
+        //console.log("Feature in filter: ", feature);
         // if (feature.geometry.coordinates[2] > 3000) {
         //     return true;
         // } else {
         //     return false;
         // }
-        return feature.geometry.coordinates[2] > 3000;
+        //return feature.geometry.coordinates[2] > 3000;
+        return feature.properties.LT = true;
     },
     pointToLayer: function (point, latlng) {
-        console.log("point: ", point);
+        //console.log("point: ", point);
         let marker = L.marker(latlng).bindPopup(`
             <h3>${point.properties.name}</h3>
             <ul>
-            <li>Name: ${point.properties.name}</li>
+            <li>Wetterstation: ${point.properties.name}</li>
             <li>Seehöhe: ${point.geometry.coordinates[2]} m ü.A.</li>
             <li>Position: ${point.geometry.coordinates}</li>
             <li>Datum: ${point.properties.date}</li>
