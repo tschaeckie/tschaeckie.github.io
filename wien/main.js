@@ -64,17 +64,32 @@ sights.on("data:loaded", function () {
 let wandern = "https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:WANDERWEGEOGD&srsName=EPSG:4326&outputFormat=json"
 
 L.geoJson.ajax(wandern, {
-    style: function () {
-        return {
-            color: "black",
-            weight: 3,
-            //gestrichelte Linien
-            dashArray: 5,
-        };
+    style: function (feature) {
+        if (feature.properties.KATEGORIE === "rundumadum") {
+            return {
+                //schwarz gepunktet nicht gefunden
+                color: "brown",
+                weight: 2
+            };
+        } else {
+            return {
+                color: "black",
+                weight: 2,
+                dashArray: 5
+            };
+        }
+
+        // return {
+        //     color: "black",
+        //     weight: 3,
+        //     //gestrichelte Linien
+        //     dashArray: 5,
+        // };
+
     },
     //Popup Bezeichnung des Weges; im Feature nur den Bezeichnungstext gefunden, wo ist der NAME???
     onEachFeature: function (feature, layer) {
-        //console.log("Feature: ", feature);
+        console.log("Feature: ", feature);
         layer.bindPopup(`<h3>${feature.properties.BEZ_TEXT}</h3>
         `);
     }
