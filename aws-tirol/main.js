@@ -43,8 +43,15 @@ let aws = L.geoJson.ajax(awsUrl, {
         let marker = L.marker(latlng).bindPopup(`
             <h3>${point.properties.name}</h3>
             <ul>
+            <li>Name: ${point.properties.name}</li>
+            <li>Seehöhe: ${point.geometry.coordinates[2]} m ü.A.</li>
+            <li>Position: ${point.geometry.coordinates}</li>
             <li>Datum: ${point.properties.date}</li>
             <li>Lufttemperatur: ${point.properties.LT} °C</li>
+            <li>Windgeschwindigkeit: ${point.properties.WG} [m/s]</li>
+            <li>Relative Luftfeuchte: ${point.properties.RH} %</li>
+            <li>Schneehöhe: ${point.properties.HS} cm</li>
+            <li><a target="links" href="https://lawine.tirol.gv.at/data/grafiken/1100/standard/tag/${point.properties.plot}.png">Wetterdaten</a></li>
             </ul>
         `);
         return marker;
