@@ -74,7 +74,7 @@ let aws = L.geoJson.ajax(awsUrl, {
         return col;
     };
    
-    //console.log(color);
+    //console.log(colors);
 
     let drawTemperature = function(jsonData) {
         //console.log("aus der Funktion", jsonData);
@@ -109,7 +109,7 @@ let drawWind = function(jsonData) {
         pointToLayer: function(feature, latlng) {
             let kmh = Math.round(feature.properties.WG / 1000 * 3600);
             return L.marker(latlng, {
-                title: `${feature.properties.name} (${feature.geometry.coordinates[2]}m)`,
+                title: `${feature.properties.name} (${feature.geometry.coordinates[2]}m) - ${khm} km/h`,
                 icon: L.divIcon({
                     html: `<div class="label-wind" style="background-color:${color}">${kmh}</div>`,
                     className: "ignore-me" // dirty hack
