@@ -101,12 +101,13 @@ let drawWind = function(jsonData) {
 };
 
 
-//als default anzeigen
+
 aws.on("data:loaded", function() {
     //console.log(aws.toGeoJSON());
     drawTemperature(aws.toGeoJSON());
     drawWind(aws.toGeoJSON());
     map.fitBounds(overlay.stations.getBounds());
 
-    overlay.wind.addTo(map);
+    //als default anzeigen
+    overlay.temperature.addTo(map);
 });
