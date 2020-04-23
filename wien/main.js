@@ -65,17 +65,18 @@ let wandern = "https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&
 
 L.geoJson.ajax(wandern, {
     style: function (feature) {
-        if (feature.properties.KATEGORIE === "rundumadum") {
+        if (feature.properties.TYP === "1") {
             return {
-                //schwarz gepunktet nicht gefunden
-                color: "brown",
-                weight: 2
+                color: "black",
+                weight: 2,
+                dashArray: "15 5"
+                //Pattern: erste Zahl Strich, zweite Zahl leer
             };
         } else {
             return {
                 color: "black",
                 weight: 2,
-                dashArray: 5
+                dashArray: "1 5"
             };
         }
 
