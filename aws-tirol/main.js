@@ -33,12 +33,6 @@ let awsUrl = "https://aws.openweb.cc/stations";
 let aws = L.geoJson.ajax(awsUrl, {
     filter: function (feature) {
         //console.log("Feature in filter: ", feature);
-        // if (feature.geometry.coordinates[2] > 3000) {
-        //     return true;
-        // } else {
-        //     return false;
-        // }
-        //return feature.geometry.coordinates[2] > 3000;
         return feature.properties.LT;
     },
     pointToLayer: function (point, latlng) {
@@ -48,46 +42,50 @@ let aws = L.geoJson.ajax(awsUrl, {
             <ul>
             <li>Wetterstation: ${point.properties.name}</li>
             <li>Seehöhe: ${point.geometry.coordinates[2]} m ü.A.</li>
-            <li>Position: ${point.geometry.coordinates}</li>
+            li>Position (Lat,Lng): ${point.geometry.coordinates[1].toFixed(5)}, ${point.geometry.coordinates[0].toFixed(5)}</li>
             <li>Datum: ${point.properties.date}</li>
             <li>Lufttemperatur: ${point.properties.LT} °C</li>
-            <li>Windgeschwindigkeit: ${point.properties.WG} [m/s]</li>
-            <li>Relative Luftfeuchte: ${point.properties.RH} %</li>
-            <li>Schneehöhe: ${point.properties.HS} cm</li>
-            <li><a target="links" href="https://lawine.tirol.gv.at/data/grafiken/1100/standard/tag/${point.properties.plot}.png">Wetterdaten</a></li>
+            <li>Windgeschwindigkeit (m/s): ${point.properties.WG || "-"}</li>
+            <li>Relative Luftfeuchte (%): ${point.properties.RH || "-"}</li>
+            <li>Schneehöhe (cm): ${point.properties.HS || "-"}</li>
             </ul>
-        `);
-        return marker;
-    }
-}).addTo(overlay.stations);
-
-let drawTemperature = function (jsonData) {
-    console.log("aus der Funktion", jsonData);
-    L.geoJson(jsonData, {
-        filter: function (feature) {
-            return feature.properties.LT
-        },
-        pointToLayer: function (feature, latlng) {
-            return L.marker(latlng, {
-                title: `${feature.properties.name} (${feature.geometry.coordinates[2]}m)`
-                icon: L.divIcon({
-                    html: `<div>${feature.properties.LT.toFixed(1)}</div>`,
-                    className: "ignore-me" // dirty hack
-                })
-            })
+            <p><a target="plot" href="https://lawine.tirol.gv.at/data/grafiken/1100/standard/tag/${point.properties.plot}.png">Grafik der vorhandenen Messwerte anzeigen</a></p>
+            </ul>
+            `);
+            return marker;
         }
-    }).addTo(overlay.temperature);
-};
+    }).addTo(overlay.stations);
 
+    let drawTemperature = function(jsonData) {
+        console.log("aus der Funktion", jsonData);
+        L.geoJson(jsonData, {
+            filter: function(feature) {
+                return feature.properties.LT;
+            },
+            pointToLayer: function(feature, latlng) {
+                return L.marker(latlng, {
+                    title: `${feature.properties.name} (${feature.geometry.coordinates[2]}m)`,
+                    icon: L.divIcon({
+                        html: `<div class="label-temperature">${feature.properties.LT.toFixed(1)}</div>`,
+                        className: "ignore-me" // dirty hack
+                    })
+                })
+            }
+        }).addTo(overlay.temperature);
+    };
 //1. neues overlay definieren, zu L.control.layers hinzufügen und default anzeigen
 //2. die Funktion drawWind als 1:1 Kopie von drawTemperature mit Anpassungen
 //3. einen neuen Stil .label-wind im CSS von main.css
 //4. die function drawWind in data:loaded aufrufen
 //5. Zusatz Challenge: Wind in km/h, nicht in m/s
 
-aws.on("data:loaded", function () {
+let drawWind = function(jsonData) {
+
+};
+
+aws.on("data:loaded", function() {
     //console.log(aws.toGeoJSON());
-    drawTemperature(aws.toGeoJSON()); //Aufrufen der Funktion draw.Temperature
+    drawTemperature(aws.toGeoJSON());
     map.fitBounds(overlay.stations.getBounds());
 
     overlay.temperature.addTo(map);
