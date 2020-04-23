@@ -98,7 +98,6 @@ L.geoJson.ajax(wandern, {
 
 
 //Flächen
-// Versuch Farbflächen der Zonen zu unterscheiden ausgeblendet
 
 let heritage = "https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:WELTKULTERBEOGD&srsName=EPSG:4326&outputFormat=json"
 
@@ -106,7 +105,7 @@ L.geoJson.ajax(heritage, {
     style: function (feature) {
         if (feature.properties.TYP === "1") {
             return {
-                //warum Innere Stadt Kernzone geld umrahmt?
+                //zu kompliziert!!! warum Innere Stadt Kernzone geld umrahmt?
                 color: "red",
                 fillOpacity: 0.8
             };
@@ -116,10 +115,6 @@ L.geoJson.ajax(heritage, {
                 fillOpacity: 0.3,
             };
         }
-        // return {
-        //     color: "salmon",
-        //     fillOpacity: 0.3
-        // };
 
     },
     onEachFeature: function (feature, layer) {
