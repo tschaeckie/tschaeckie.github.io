@@ -110,6 +110,7 @@ L.geoJson.ajax(heritage, {
             };
         } else if (feature.properties.TYP === "1") {
             return {
+                //warum Innere Stadt Kernzone geld umrahmt?
                 color: "red",
                 fillOpacity: 0.3
             };
