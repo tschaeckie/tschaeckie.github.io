@@ -40,13 +40,11 @@ let aws = L.geoJson.ajax(awsUrl, {
     pointToLayer: function (point, latlng) {
         //console.log("point: ", point);
         let marker = L.marker(latlng).bindPopup(`
-            <h3>${point.properties.name}</h3>
+            <h3>${point.properties.name} ${point.geometry.coordinates[2]} m</h3>
             <ul>
-            <li>Wetterstation: ${point.properties.name}</li>
-            <li>Seehöhe: ${point.geometry.coordinates[2]} m ü.A.</li>
-            li>Position (Lat,Lng): ${point.geometry.coordinates[1].toFixed(5)}, ${point.geometry.coordinates[0].toFixed(5)}</li>
+            <li>Position (Lat,Lng): ${point.geometry.coordinates[1].toFixed(5)}, ${point.geometry.coordinates[0].toFixed(5)}</li>
             <li>Datum: ${point.properties.date}</li>
-            <li>Lufttemperatur: ${point.properties.LT} °C</li>
+            <li>Lufttemperatur (°C): ${point.properties.LT}</li>
             <li>Windgeschwindigkeit (m/s): ${point.properties.WG || "-"}</li>
             <li>Relative Luftfeuchte (%): ${point.properties.RH || "-"}</li>
             <li>Schneehöhe (cm): ${point.properties.HS || "-"}</li>
@@ -74,7 +72,7 @@ let aws = L.geoJson.ajax(awsUrl, {
         return col;
     };
    
-    //console.log(colors);
+    //console.log(color);
 
     let drawTemperature = function(jsonData) {
         //console.log("aus der Funktion", jsonData);
@@ -108,10 +106,11 @@ let drawWind = function(jsonData) {
         },
         pointToLayer: function(feature, latlng) {
             let kmh = Math.round(feature.properties.WG / 1000 * 3600);
+            let color = getColor(kmh,COLORS.wind);
             return L.marker(latlng, {
-                title: `${feature.properties.name} (${feature.geometry.coordinates[2]}m) - ${khm} km/h`,
+                title: `${feature.properties.name} (${feature.geometry.coordinates[2]}m) - ${kmh} km/h`,
                 icon: L.divIcon({
-                    html: `<div class="label-wind" style="background-color:${color}">${kmh}</div>`,
+                    html: `<div class="label-wind"><i class="fas fa-arrow-circle-up" style="color:${color}"></i></div>`,
                     className: "ignore-me" // dirty hack
                 })
             })
@@ -128,7 +127,7 @@ aws.on("data:loaded", function() {
     map.fitBounds(overlay.stations.getBounds());
 
     //als default anzeigen
-    overlay.temperature.addTo(map);
+    overlay.wind.addTo(map);
 
-    //colors.log(COLORS);
+    //console.log(COLORS);
 });
