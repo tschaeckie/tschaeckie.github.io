@@ -66,3 +66,15 @@ main h2 {
         -1px 1px 0 black,
         1px 1px 0 black
 }
+
+.label-snow {
+    font-size: 1.75em;
+    font-weight: bold;
+    display: inline;
+    background-color: silver;
+    text-shadow:
+        -1px -1px 0 black,
+        1px -1px 0 black,
+        -1px 1px 0 black,
+        1px 1px 0 black
+}
