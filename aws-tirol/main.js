@@ -14,6 +14,7 @@ let overlay = {
     wind: L.featureGroup()
 }
 
+//Layer control
 L.control.layers({
     "BasemapAT.grau": startLayer,
     "BasemapAT": L.tileLayer.provider("BasemapAT"),

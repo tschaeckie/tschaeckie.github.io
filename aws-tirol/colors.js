@@ -1,3 +1,11 @@
+//Daten unter: https://lawine.report/weather/map/
+//Temperatur, Wind, Schneehöhen auswählen
+//Rechtsklick auf der Legende: Element untersuchen
+//<g class ="legend wrapper" ....> Rechtklick - Kopieren - Inner HTML
+//Daten aufbereiten: rgb-Werte in Klassen einteilen (die der Legende)
+
+
+
 const COLORS = {
     temperature: [
         [9999, "rgb(250,55,150)"],
@@ -22,5 +30,16 @@ const COLORS = {
         [20, "rgb(150,255,150)"],
         [10, "rgb(200,255,100)"],
         [5, "rgb(255,255,100)"]
+    ],
+    snow: [
+        [1000, "rgb(204,12,232)"],
+        [400, "rgb(120,75,255)"],
+        [300, "rgb(3,91,190)"],
+        [200, "rgb(4,129,255)"],
+        [100, "rgb(3,205,255)"],
+        [50, "rgb(140,255,255)"],
+        [25, "rgb(176,255,188)"],
+        [10, "rgb(255,255,179)"],
+        [1, "rgb(255,255,254)"]
     ]
 };
