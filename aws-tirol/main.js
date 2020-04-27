@@ -169,6 +169,20 @@ let drawHumidity = function (jsonData) {
     }).addTo(overlay.humidity);
 }; 
 
+
+// Rainviewer
+L.control.rainviewer({ 
+    position: 'bottomleft',
+    nextButtonText: '>',
+    playStopButtonText: 'Play/Stop',
+    prevButtonText: '<',
+    positionSliderLabelText: "Hour:",
+    opacitySliderLabelText: "Opacity:",
+    animationInterval: 500,
+    opacity: 0.5
+}).addTo(map);
+
+
 aws.on("data:loaded", function () {
     //console.log(aws.toGeoJSON());
     drawTemperature(aws.toGeoJSON());
@@ -182,43 +196,6 @@ aws.on("data:loaded", function () {
 
     //console.log(COLORS);
 });
-
-
-
-
-
-
-
-//let rainviewer = "https://tilecache.rainviewer.com/api/maps.json"
-
-
-//console.log(rainviewer)
-//let drawRain = function (jsonData) {
-//     //console.log("aus der Funktion", jsonData);
-//L.geoJson(jsonData, {
-//         filter: function (feature) {
-//             //return feature.properties.RH;
-//         },
-//         pointToLayer: function (feature, latlng) {
-//             let color = getColor(feature.properties.RH, COLORS.humidity);
-//             return L.marker(latlng, {
-//                 title: `${feature.properties.name} (${feature.geometry.coordinates[2]}m) - ${feature.properties.RH} %`,
-//                 icon: L.divIcon({
-//                     html: `<div class="label-humidity"><i class="fas fa-tint" style="color:${color}"></i></div>`,
-//                     className: "ignore-me" // dirty hack
-//                 })
-//             })
-//         }
-//}).addTo(overlay.rain);
-//};
-
-
-// rainviewer.on("data:loaded", function () {
-//     drawRain(rainviewer.toGeoJSON());
-//     map.fitBounds(overlay.rain.getBounds());
-
-//     overlay.rain.addTo(map);
-// });
 
 
 
