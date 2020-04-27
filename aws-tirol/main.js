@@ -13,8 +13,7 @@ let overlay = {
     temperature: L.featureGroup(),
     wind: L.featureGroup(),
     snow: L.featureGroup(),
-    humidity: L.featureGroup(),
-    //rain: L.featureGroup()
+    humidity: L.featureGroup()
 }
 
 //Layer control
@@ -36,7 +35,6 @@ L.control.layers({
     "Windgeschwindigkeit (km/h)": overlay.wind,
     "Gesamtschneehöhe (cm)": overlay.snow,
     "Luftfeuchtigkeit (%)": overlay.humidity,
-    //"Regensimulation": overlay.rain,
 }).addTo(map);
 
 let awsUrl = "https://aws.openweb.cc/stations";
@@ -167,11 +165,11 @@ let drawHumidity = function (jsonData) {
             })
         }
     }).addTo(overlay.humidity);
-}; 
+};
 
 
 // Rainviewer
-L.control.rainviewer({ 
+L.control.rainviewer({
     position: 'bottomleft',
     nextButtonText: '>',
     playStopButtonText: 'Play/Stop',
@@ -196,6 +194,3 @@ aws.on("data:loaded", function () {
 
     //console.log(COLORS);
 });
-
-
-
