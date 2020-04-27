@@ -14,7 +14,7 @@ let overlay = {
     wind: L.featureGroup(),
     snow: L.featureGroup(),
     humidity: L.featureGroup(),
-    rain: L.featureGroup()
+    //rain: L.featureGroup()
 }
 
 //Layer control
@@ -36,7 +36,7 @@ L.control.layers({
     "Windgeschwindigkeit (km/h)": overlay.wind,
     "Gesamtschneehöhe (cm)": overlay.snow,
     "Luftfeuchtigkeit (%)": overlay.humidity,
-    "Regensimulation": overlay.rain,
+    //"Regensimulation": overlay.rain,
 }).addTo(map);
 
 let awsUrl = "https://aws.openweb.cc/stations";
@@ -186,13 +186,16 @@ aws.on("data:loaded", function () {
 
 
 
-let rainviewer = "https://tilecache.rainviewer.com/api/maps.json"
+
+
+
+//let rainviewer = "https://tilecache.rainviewer.com/api/maps.json"
 
 
 //console.log(rainviewer)
-let drawRain = function (jsonData) {
+//let drawRain = function (jsonData) {
 //     //console.log("aus der Funktion", jsonData);
-L.geoJson(jsonData, {
+//L.geoJson(jsonData, {
 //         filter: function (feature) {
 //             //return feature.properties.RH;
 //         },
@@ -206,8 +209,8 @@ L.geoJson(jsonData, {
 //                 })
 //             })
 //         }
-}).addTo(overlay.rain);
-};
+//}).addTo(overlay.rain);
+//};
 
 
 // rainviewer.on("data:loaded", function () {
@@ -216,3 +219,6 @@ L.geoJson(jsonData, {
 
 //     overlay.rain.addTo(map);
 // });
+
+
+
