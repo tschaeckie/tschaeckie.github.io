@@ -35,7 +35,24 @@ L.control.layers({
 //forof Schleife (gleich auswählen)
 for (const blick of ADLERBLICKE) {
     console.log(blick);
-    let mrk = L.marker([blick.lat,blick.lng]).addTo(overlay.adlerblicke);
+    let mrk = L.marker([blick.lat,blick.lng], {
+        icon: L.icon({
+            iconSize: [32, 37],
+            iconAnchor: [16, 37],
+            popupAnchor: [0, -37],
+            iconUrl: "icons/panoramicview.png"
+        })
+    }).addTo(overlay.adlerblicke);
+    L.marker([blick.lat,blick.lng]).addTo(map);
     mrk.bindPopup(`Standort${blick.standort} (${blick.seehoehe}m)`);
 }
 overlay.adlerblicke.addTo(map);
+
+
+//Icon implementieren
+//map icons collection: https://mapicons.mapsmarker.com/
+//Panoramic View Icon: https://mapicons.mapsmarker.com/markers/tourism/place-to-see/panoramic-view/
+//nur iconUrl: Icon hat ursprünglich den Nullpunkt in der linken oberen Ecke!! 
+//--> iconSize verändern (wird automatisch auf die Koordinate zentriert)
+//Ankerpunkt setzen (durch [0, 0] wird Veränderung der IconSize wieder überschrieben) --> [16, 37]
+//Popup soll erst oberhalb des Icons beginnen: popupAnchor
