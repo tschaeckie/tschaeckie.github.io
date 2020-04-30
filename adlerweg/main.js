@@ -59,29 +59,54 @@ overlay.adlerblicke.addTo(map);
 //Ankerpunkt setzen (durch [0, 0] wird Veränderung der IconSize wieder überschrieben) --> [16, 37]
 //Popup soll erst oberhalb des Icons beginnen: popupAnchor
 
+
+let drawEtappe = function(nr) {
+    console.log(ETAPPEN[nr].track);
+    let track = ETAPPEN[nr].track.replace("A", "");
+    console.log(track);
+
+    let gpx = new L.GPX(`gpx/AdlerwegEtappe${track}.gpx`, {
+        async: true,
+        marker_options: {
+            startIconUrl: 'icons/number_1.png',
+            endIconUrl: 'icons/finish.png',
+            shadowUrl: null,
+            iconSize: [32, 37],
+            iconAnchor: [16, 37],
+            popupAnchor: [0, -37],
+          },
+        polyline_options: {
+            color: 'black',
+            dashArray: [2, 5]
+          }
+    });
+
+    gpx.on("loaded", function(evt) {
+        map.fitBounds(evt.target.getBounds());
+    }).addTo(overlay.etappen);
+    
+    overlay.etappen.addTo(map);
+};
+drawEtappe(2);
+
+
 //leaflet plugin von mpetazzoni und vorgeschlagenes cdnjs (https://cdnjs.com/libraries/leaflet-gpx) implementieren: https://github.com/mpetazzoni/leaflet-gpx
-let gpx = new L.GPX("gpx/AdlerwegEtappe01.gpx", {
-    async: true,
-    marker_options: {
-        startIconUrl: 'icons/number_1.png',
-        endIconUrl: 'icons/finish.png',
-        shadowUrl: null,
-        iconSize: [32, 37],
-        iconAnchor: [16, 37],
-        popupAnchor: [0, -37],
-      },
-    polyline_options: {
-        color: 'black',
-        dashArray: [2, 5]
-      }
-});
-
-gpx.on("loaded", function(evt) {
-    map.fitBounds(evt.target.getBounds());
-}).addTo(overlay.etappen);
-
-overlay.etappen.addTo(map);
-
 //Farbe von map icons events (rot) kopieren: #c03639
 //Icon: Finish von Sports: Rote Farbe einfügen und bestätigen
 //Numbers&Letters: Nummer 1 speichern (restliche Nummern von OLAT bekommen)
+
+
+//Pulldown Menu
+let pulldown = document.querySelector("#pulldown");
+//console.log(pulldown);
+
+for (let i = 1; i < ETAPPEN.length; i++) {
+    const etappe = ETAPPEN[i];
+    //console.log(etappe);
+    pulldown.innterHTML += `<option value="${i}">${etappe.titel}</option>`;
+}
+pulldown.onchange = function(evt) {
+    let nr = evt.target.options[evt.target.options.selectedIndex].value;
+    //console.log(nr);
+    drawEtappe(nr);
+}
