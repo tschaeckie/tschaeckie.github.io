@@ -23,3 +23,4 @@ L.control.layers({
 }).addTo(map);
 
 console.log(ETAPPEN);
+console.log(ADLERBLICKE);
