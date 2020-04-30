@@ -9,7 +9,8 @@ let map = L.map("map", {
 });
 
 let overlay = {
-    adlerblicke: L.featureGroup()
+    adlerblicke: L.featureGroup(),
+    etappen: L.featureGroup(),
 };
 
 L.control.layers({
@@ -25,7 +26,8 @@ L.control.layers({
         L.tileLayer.provider("BasemapAT.overlay")
     ])
 }, {
-    "Adlerblicke": overlay.adlerblicke
+    "Adlerblicke": overlay.adlerblicke,
+    "Adlerweg Etappen": overlay.etappen,
 }).addTo(map);
 
 //console.log(ETAPPEN);
@@ -56,3 +58,30 @@ overlay.adlerblicke.addTo(map);
 //--> iconSize verändern (wird automatisch auf die Koordinate zentriert)
 //Ankerpunkt setzen (durch [0, 0] wird Veränderung der IconSize wieder überschrieben) --> [16, 37]
 //Popup soll erst oberhalb des Icons beginnen: popupAnchor
+
+//leaflet plugin von mpetazzoni und vorgeschlagenes cdnjs (https://cdnjs.com/libraries/leaflet-gpx) implementieren: https://github.com/mpetazzoni/leaflet-gpx
+let gpx = new L.GPX("gpx/AdlerwegEtappe01.gpx", {
+    async: true,
+    marker_options: {
+        startIconUrl: 'icons/number_1.png',
+        endIconUrl: 'icons/finish.png',
+        shadowUrl: null,
+        iconSize: [32, 37],
+        iconAnchor: [16, 37],
+        popupAnchor: [0, -37],
+      },
+    polyline_options: {
+        color: 'black',
+        dashArray: [2, 5]
+      }
+});
+
+gpx.on("loaded", function(evt) {
+    map.fitBounds(evt.target.getBounds());
+}).addTo(overlay.etappen);
+
+overlay.etappen.addTo(map);
+
+//Farbe von map icons events (rot) kopieren: #c03639
+//Icon: Finish von Sports: Rote Farbe einfügen und bestätigen
+//Numbers&Letters: Nummer 1 speichern (restliche Nummern von OLAT bekommen)
