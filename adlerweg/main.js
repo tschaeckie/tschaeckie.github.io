@@ -71,7 +71,7 @@ let drawEtappe = function(nr) {
         async: true,
         marker_options: {
             startIconUrl: `icons/number_${nr}.png`,
-            endIconUrl: 'icons/finish.png',
+            endIconUrl: "icons/finish.png",
             shadowUrl: null,
             iconSize: [32, 37],
             iconAnchor: [16, 37],
@@ -88,8 +88,18 @@ let drawEtappe = function(nr) {
     }).addTo(overlay.etappen);
     
     overlay.etappen.addTo(map);
+
+    for (const key in ETAPPEN[nr]) {
+        const val = ETAPPEN[nr][key];
+        console.log(`et-${key}`);
+        let elem = document.querySelector(`#et-${key}`);
+        if (elem) {
+            elem.innerHTML = val;
+            console.log(val);
+        }
+    }
 };
-drawEtappe(2);
+drawEtappe(1);
 
 
 //leaflet plugin von mpetazzoni und vorgeschlagenes cdnjs (https://cdnjs.com/libraries/leaflet-gpx) implementieren: https://github.com/mpetazzoni/leaflet-gpx
