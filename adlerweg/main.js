@@ -10,7 +10,7 @@ let map = L.map("map", {
 
 let overlay = {
     adlerblicke: L.featureGroup(),
-    etappen: L.featureGroup(),
+    etappen: L.featureGroup()
 };
 
 L.control.layers({
@@ -27,7 +27,7 @@ L.control.layers({
     ])
 }, {
     "Adlerblicke": overlay.adlerblicke,
-    "Adlerweg Etappen": overlay.etappen,
+    "Adlerweg Etappen": overlay.etappen
 }).addTo(map);
 
 //console.log(ETAPPEN);
@@ -46,7 +46,7 @@ for (const blick of ADLERBLICKE) {
         })
     }).addTo(overlay.adlerblicke);
     //L.marker([blick.lat,blick.lng]).addTo(map);
-    mrk.bindPopup(`Standort${blick.standort} (${blick.seehoehe}m)`);
+    mrk.bindPopup(`Standort ${blick.standort} (${blick.seehoehe}m)`);
 }
 overlay.adlerblicke.addTo(map);
 
@@ -78,7 +78,7 @@ let drawEtappe = function(nr) {
             popupAnchor: [0, -37],
           },
         polyline_options: {
-            color: 'black',
+            color: "black",
             dashArray: [2, 5]
           }
     });
