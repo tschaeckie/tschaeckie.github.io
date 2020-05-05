@@ -10,7 +10,7 @@ let map = L.map("map", {
 
 let overlay = {
     adlerblicke: L.featureGroup(),
-    etappen: L.featureGroup()
+    etappen: L.featureGroup(),
 };
 
 L.control.layers({
@@ -27,7 +27,7 @@ L.control.layers({
     ])
 }, {
     "Adlerblicke": overlay.adlerblicke,
-    "Adlerweg Etappen": overlay.etappen
+    "Adlerweg Etappen": overlay.etappen,
 }).addTo(map);
 
 //console.log(ETAPPEN);
@@ -102,6 +102,7 @@ let drawEtappe = function(nr) {
     }
 };
 drawEtappe(1);
+
 
 
 //leaflet plugin von mpetazzoni und vorgeschlagenes cdnjs (https://cdnjs.com/libraries/leaflet-gpx) implementieren: https://github.com/mpetazzoni/leaflet-gpx
