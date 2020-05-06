@@ -11,10 +11,10 @@ const EINKEHR = [
     [ Etappennummer (11), Kastenalm, 47.36947, 11.43541 ],
     [ Etappennummer (11), Hallerangerhaus, 47.35477, 11.47718],
     [ Etappennummer (11), Hallerangeralm, 47.35647, 11.47980],
-    [ Etappennummer (12), Hallerangerhaus, 47.35477 , 11.47718 ],
+
     
     [ Etappennummer (12), Hallerangerhaus, 47.35477, 11.47718],
-    [ Etappennummer (11), Hallerangeralm, 47.35647, 11.47980],
+    [ Etappennummer (12), Hallerangeralm, 47.35647, 11.47980],
     [ Etappennummer (12), Pfeishütte, 47.33002, 11.42559],
     [ Etappennummer (12), Bergstation Hafelekar, 47.31198, 11.38357],
 
