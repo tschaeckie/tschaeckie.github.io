@@ -176,20 +176,58 @@ map.on("zoomend moveend", function (evt) {
     let url =`https://secure.geonames.org/wikipediaBoundingBoxJSON?&north=${ext.north}&south=${ext.south}&east=${ext.east}&west=${ext.west}&username=tschaeckie&lang=de&maxRows=30`;
     console.log(url);
 
+
+    //Leaflet ajax von calvinmetcalf: https://github.com/calvinmetcalf/leaflet-ajax
+
     let wiki = L.Util.jsonp(url).then( function(data) {
         //console.log(data.geonames);
         for (let article of data.geonames) {
+
+            let png = "";
+            console.log(article.feature)
+            switch (article.feature) {
+                case "city":
+                    png = "bigcity.png";
+                    break;
+                case "landmark":
+                    png = "landmark.png";
+                    break;
+                case "waterbody":
+                    png = "lake.png";
+                    break;
+                case "river":
+                    png = "river.png";
+                    break;
+                case "mountain":
+                    png = "mountains.png";
+                    break;
+                default: 
+                    png = "information.png";
+            }
+            console.log(png);
+
             let mrk = L.marker([article.lat,article.lng]).addTo(overly.wikipedia);
+            let img = "";
+            if (article.thumbnailImg) {
+                img = `<img src="${article.thumbnailImg}" alt="thumbnail">`
+            }
+            
             mrk.bindPopup(`
             <small>${article.feature}</small>
-            <h3> ${article.title} (${article.elevation}m)</h3>
+            <h3>${article.title} (${article.elevation}m)</h3>
+            ${img}
             <p>${article.summary}</p>
             <a target="wikipedia" href="https://${article.wikipediaUrl}">Wikipedia Artikel</a> 
             `)
-            console.log(article);
+            //console.log(article);
         }
     });
 });
 overlay.wikipedia.addTo(map);
 
-//Leaflet ajax von calvinmetcalf: https://github.com/calvinmetcalf/leaflet-ajax
+
+//Wikipedia Bounding Box - Features http://www.geonames.org/wikipedia/wikipedia_features.html
+
+
+
+// Icons https://mapicons.mapsmarker.com/markers/restaurants-bars/restaurants/restaurant/
