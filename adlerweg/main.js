@@ -98,11 +98,19 @@ let drawEtappe = function(nr) {
     for (const key in ETAPPEN[nr]) {
         if (ETAPPEN[nr].hasOwnProperty(key)) {
             const val = ETAPPEN[nr][key];
-            console.log(`et-${key}`);
             let elem = document.querySelector(`#et-${key}`);
             if (elem) {
+                if (key == "einkehr") {
+                    val = val.replace(/#/g, ", ");
+                }
+
+                if (key == "track") {
+                    val = val.replace("A", "");
+                    val = `<a href="gpx/AdlerwegEtappe${val}.gpx">GPX</a>`
+                }
+
                 elem.innerHTML = val;
-                console.log(val);
+                
             }
         }
     }
@@ -166,6 +174,10 @@ L.control.scale({
 //Geonames.org - Overview: https://www.geonames.org/export/ws-overview.html
 //Wikipedia Bounding box https://secure.geonames.org/wikipediaBoundingBoxJSON?&north=44.1&south=-9.9&east=-22.4&west=55.2&username=tschaeckie&lang=de&maxRows=30
 
+
+let drawnMarkers = {};
+
+
 map.on("zoomend moveend", function (evt) {
     let ext = {
         north: map.getBounds().getNorth(),
@@ -173,7 +185,7 @@ map.on("zoomend moveend", function (evt) {
         east: map.getBounds().getEast(),
         west: map.getBounds().getWest()
     };
-    let url =`https://secure.geonames.org/wikipediaBoundingBoxJSON?&north=${ext.north}&south=${ext.south}&east=${ext.east}&west=${ext.west}&username=tschaeckie&lang=de&maxRows=30`;
+    let url =`https://secure.geonames.org/wikipediaBoundingBoxJSON?north=${ext.north}&south=${ext.south}&east=${ext.east}&west=${ext.west}&username=tschaeckie&lang=de&maxRows=30`;
     console.log(url);
 
 
@@ -182,9 +194,16 @@ map.on("zoomend moveend", function (evt) {
     let wiki = L.Util.jsonp(url).then( function(data) {
         //console.log(data.geonames);
         for (let article of data.geonames) {
+            let ll = `${article.lat}${article.lng}`;
+            if (drawnMarkers[ll]) {
+                continue;
+            } else {
+                drawnMarkers[ll] = true;
+            }
+
 
             let png = "";
-            console.log(article.feature)
+            //console.log(article.feature)
             switch (article.feature) {
                 case "city":
                     png = "bigcity.png";
@@ -206,8 +225,16 @@ map.on("zoomend moveend", function (evt) {
             }
             console.log(png);
 
-            let mrk = L.marker([article.lat,article.lng]).addTo(overly.wikipedia);
+            let mrk = L.marker([article.lat,article.lng], {
+                //icon hier fehlt noch ganz viel
+
+            )}.addTo(overly.wikipedia);
+                
+
+            
+
             let img = "";
+
             if (article.thumbnailImg) {
                 img = `<img src="${article.thumbnailImg}" alt="thumbnail">`
             }
