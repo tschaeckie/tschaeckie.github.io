@@ -200,7 +200,7 @@ map.on("zoomend moveend", function (evt) {
             } else {
                 drawnMarkers[ll] = true;
             }
-
+            
 
             let png = "";
             //console.log(article.feature)
@@ -228,7 +228,7 @@ map.on("zoomend moveend", function (evt) {
             let mrk = L.marker([article.lat,article.lng], {
                 //icon hier fehlt noch ganz viel
 
-            )}.addTo(overly.wikipedia);
+            }).addTo(overlay.wikipedia);
                 
 
             
