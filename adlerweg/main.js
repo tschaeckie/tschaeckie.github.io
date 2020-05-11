@@ -41,7 +41,7 @@ L.control.layers({
 //forof Schleife (gleich auswählen)
 for (const blick of ADLERBLICKE) {
     //console.log(blick);
-    let mrk = L.marker([blick.lat,blick.lng], {
+    let mrk = L.marker([blick.lat, blick.lng], {
         icon: L.icon({
             iconSize: [32, 37],
             iconAnchor: [16, 37],
@@ -54,7 +54,6 @@ for (const blick of ADLERBLICKE) {
 }
 overlay.adlerblicke.addTo(map);
 
-
 //Icon implementieren
 //map icons collection: https://mapicons.mapsmarker.com/
 //Panoramic View Icon: https://mapicons.mapsmarker.com/markers/tourism/place-to-see/panoramic-view/
@@ -64,7 +63,7 @@ overlay.adlerblicke.addTo(map);
 //Popup soll erst oberhalb des Icons beginnen: popupAnchor
 
 
-let drawEtappe = function(nr) {
+let drawEtappe = function (nr) {
     overlay.etappen.clearLayers();
 
     //console.log(ETAPPEN[nr].track);
@@ -79,25 +78,24 @@ let drawEtappe = function(nr) {
             shadowUrl: null,
             iconSize: [32, 37],
             iconAnchor: [16, 37],
-            popupAnchor: [0, -37],
-          },
+            popupAnchor: [0, -37]
+        },
         polyline_options: {
             color: "black",
             dashArray: [2, 5]
-          }
+        }
     });
 
-    gpx.on("loaded", function(evt) {
+    gpx.on("loaded", function (evt) {
         map.fitBounds(evt.target.getBounds());
         controlElevation.clear();
         controlElevation.load(`gpx/AdlerwegEtappe${track}.gpx`);
     }).addTo(overlay.etappen);
-    
     overlay.etappen.addTo(map);
 
     for (const key in ETAPPEN[nr]) {
         if (ETAPPEN[nr].hasOwnProperty(key)) {
-            const val = ETAPPEN[nr][key];
+            let val = ETAPPEN[nr][key];
             let elem = document.querySelector(`#et-${key}`);
             if (elem) {
                 if (key == "einkehr") {
@@ -110,13 +108,12 @@ let drawEtappe = function(nr) {
                 }
 
                 elem.innerHTML = val;
-                
             }
         }
     }
+
 };
 drawEtappe(1);
-
 
 
 //leaflet plugin von mpetazzoni und vorgeschlagenes cdnjs (https://cdnjs.com/libraries/leaflet-gpx) implementieren: https://github.com/mpetazzoni/leaflet-gpx
@@ -134,23 +131,24 @@ for (let i = 1; i < ETAPPEN.length; i++) {
     //console.log(etappe);
     pulldown.innerHTML += `<option value="${i}">${etappe.titel}</option>`;
 }
-pulldown.onchange = function(evt) {
+pulldown.onchange = function (evt) {
     let nr = evt.target.options[evt.target.options.selectedIndex].value;
     //console.log(nr);
     drawEtappe(nr);
 }
 
+
 let drawEinkehr = function () {
     for (let einkehr of EINKEHR) {
         //console.log(einkehr);
-        let mrk = L.marker([einkehr[2],einkehr[3]], {
+        let mrk = L.marker([einkehr[2], einkehr[3]], {
             icon: L.icon({
                 iconSize: [32, 37],
                 iconAnchor: [16, 37],
                 popupAnchor: [0, -37],
                 iconUrl: "icons/restaurant.png"
             })
-        }).addTo(overlay.einkehr)
+        }).addTo(overlay.einkehr);
         mrk.bindPopup(`${einkehr[1]} (Etappe ${einkehr[0]})`);
     }
 };
@@ -161,7 +159,7 @@ overlay.einkehr.addTo(map);
 
 let controlElevation = L.control.elevation({
     theme: "adler-theme",
-    detached: true, 
+    detached: true,
     elevationDiv: "#profile",
     followMarker: false
 }).addTo(map);
@@ -170,13 +168,11 @@ L.control.scale({
     imperial: false
 }).addTo(map);
 
-
 //Geonames.org - Overview: https://www.geonames.org/export/ws-overview.html
 //Wikipedia Bounding box https://secure.geonames.org/wikipediaBoundingBoxJSON?&north=44.1&south=-9.9&east=-22.4&west=55.2&username=tschaeckie&lang=de&maxRows=30
 
 
 let drawnMarkers = {};
-
 
 map.on("zoomend moveend", function (evt) {
     let ext = {
@@ -185,13 +181,13 @@ map.on("zoomend moveend", function (evt) {
         east: map.getBounds().getEast(),
         west: map.getBounds().getWest()
     };
-    let url =`https://secure.geonames.org/wikipediaBoundingBoxJSON?north=${ext.north}&south=${ext.south}&east=${ext.east}&west=${ext.west}&username=tschaeckie&lang=de&maxRows=30`;
+    let url = `https://secure.geonames.org/wikipediaBoundingBoxJSON?north=${ext.north}&south=${ext.south}&east=${ext.east}&west=${ext.west}&username=tschaeckie&lang=de&maxRows=30`;
     console.log(url);
 
 
     //Leaflet ajax von calvinmetcalf: https://github.com/calvinmetcalf/leaflet-ajax
 
-    let wiki = L.Util.jsonp(url).then( function(data) {
+    let wiki = L.Util.jsonp(url).then(function (data) {
         //console.log(data.geonames);
         for (let article of data.geonames) {
             let ll = `${article.lat}${article.lng}`;
@@ -200,7 +196,7 @@ map.on("zoomend moveend", function (evt) {
             } else {
                 drawnMarkers[ll] = true;
             }
-            
+
 
             let png = "";
             //console.log(article.feature)
@@ -220,31 +216,29 @@ map.on("zoomend moveend", function (evt) {
                 case "mountain":
                     png = "mountains.png";
                     break;
-                default: 
+                default:
                     png = "information.png";
             }
             console.log(png);
 
-            let mrk = L.marker([article.lat,article.lng], {
-                //icon hier fehlt noch ganz viel
-
+            let mrk = L.marker([article.lat, article.lng], {
+                icon: L.icon({
+                    iconSize: [32, 37],
+                    iconAnchor: [16, 37],
+                    popupAnchor: [0, -37],
+                    iconUrl: `icons/${png}`
+                })
             }).addTo(overlay.wikipedia);
-                
-
-            
-
             let img = "";
-
             if (article.thumbnailImg) {
                 img = `<img src="${article.thumbnailImg}" alt="thumbnail">`
             }
-            
             mrk.bindPopup(`
-            <small>${article.feature}</small>
-            <h3>${article.title} (${article.elevation}m)</h3>
-            ${img}
-            <p>${article.summary}</p>
-            <a target="wikipedia" href="https://${article.wikipediaUrl}">Wikipedia Artikel</a> 
+                <small>${article.feature}</small>
+                <h3>${article.title} (${article.elevation}m)</h3>
+                ${img}
+                <p>${article.summary}</p>
+                <a target="wikipedia" href="https://${article.wikipediaUrl}">Wikipedia Artikel</a>
             `)
             //console.log(article);
         }
@@ -254,7 +248,5 @@ overlay.wikipedia.addTo(map);
 
 
 //Wikipedia Bounding Box - Features http://www.geonames.org/wikipedia/wikipedia_features.html
-
-
 
 // Icons https://mapicons.mapsmarker.com/markers/restaurants-bars/restaurants/restaurant/
