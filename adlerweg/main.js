@@ -168,7 +168,7 @@ L.control.scale({
     imperial: false
 }).addTo(map);
 
-//Geonames.org - Overview: https://www.geonames.org/export/ws-overview.html
+//Geonames.org - Web Services - Overview: https://www.geonames.org/export/ws-overview.html
 //Wikipedia Bounding box https://secure.geonames.org/wikipediaBoundingBoxJSON?&north=44.1&south=-9.9&east=-22.4&west=55.2&username=tschaeckie&lang=de&maxRows=30
 
 
@@ -199,7 +199,7 @@ map.on("zoomend moveend", function (evt) {
 
 
             let png = "";
-            //console.log(article.feature)
+            console.log(article.feature)
             switch (article.feature) {
                 case "city":
                     png = "bigcity.png";
@@ -219,7 +219,7 @@ map.on("zoomend moveend", function (evt) {
                 default:
                     png = "information.png";
             }
-            console.log(png);
+            //console.log(png);
 
             let mrk = L.marker([article.lat, article.lng], {
                 icon: L.icon({
