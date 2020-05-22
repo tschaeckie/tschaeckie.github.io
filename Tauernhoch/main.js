@@ -8,6 +8,10 @@ let map = L.map("map", {
     ]
 });
 
+// let overlay = {
+    //stations: L.featureGroup(),
+// }
+
 L.control.layers({
     "BasemapAT.grau": startLayer,
     "BasemapAT": L.tileLayer.provider("BasemapAT"),
@@ -15,4 +19,6 @@ L.control.layers({
         L.tileLayer.provider("BasemapAT.orthofoto"),
         L.tileLayer.provider("BasemapAT.overlay")
     ])
-});
+//}, {
+    //"Wetterstationen Tirol": overlay.stations
+}).addTo(map);
