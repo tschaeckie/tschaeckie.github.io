@@ -29,4 +29,17 @@ let aussengrenze = L.geoJSON(GRENZE).addTo(overlay.borders);
 //Layer als default anzeigen
 overlay.borders.addTo(map);
 
-console.log (GRENZE)
+//console.log (GRENZE)
+
+
+// Rainviewer
+L.control.rainviewer({
+    position: 'bottomleft',
+    nextButtonText: '>',
+    playStopButtonText: 'Play/Stop',
+    prevButtonText: '<',
+    positionSliderLabelText: "Hour:",
+    opacitySliderLabelText: "Opacity:",
+    animationInterval: 500,
+    opacity: 0.5
+}).addTo(map);
