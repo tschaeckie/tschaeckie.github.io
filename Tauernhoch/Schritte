@@ -1,8 +1,10 @@
-Wetter implementieren
 auf aussengrenze zoomen
-aussengrenze als layer
 irgendwelche marker implementieren
 startLayer festlegen
-
+icon rainviewer --> schöner oder mit Popup? damits offensichtlicher ist?
+main.css verschönern
+evtl Zeit des rainviewers verändern? d.h. nicht die letzten 2 Std anzeigen lassen, sondern länger oder in Zukunft?
+Text schreiben und einfügen zur Erklärung dieser Seite
+Wetterstationen mit Außengrenzen Nationalpark verschneiden??
 
 evtl Verknüpfen mit der Hauptseite, dass dieselben Layer angezeigt werden??
