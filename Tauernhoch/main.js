@@ -22,3 +22,9 @@ L.control.layers({
 //}, {
     //"Wetterstationen Tirol": overlay.stations
 }).addTo(map);
+
+
+
+let aussengrenze = L.geoJSON(GRENZE).addTo(map);
+
+console.log (GRENZE)

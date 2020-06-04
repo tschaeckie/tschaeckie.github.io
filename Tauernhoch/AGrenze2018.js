@@ -1,4 +1,4 @@
-{
+const GRENZE = {
     "type": "FeatureCollection",
     "name": "NPHT_AGRNZ_12112018",
     "crs": {
