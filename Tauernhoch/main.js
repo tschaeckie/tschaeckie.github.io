@@ -1,8 +1,8 @@
 let startLayer = L.tileLayer.provider("BasemapAT.grau");
 
 let map = L.map("map", {
-    center: [47.3, 11.5],
-    zoom: 8,
+    center: [47, 12.5],
+    zoom: 9,
     layers: [
         startLayer
     ]
