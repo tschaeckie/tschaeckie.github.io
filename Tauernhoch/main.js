@@ -8,9 +8,9 @@ let map = L.map("map", {
     ]
 });
 
-// let overlay = {
-    //stations: L.featureGroup(),
-// }
+let overlay = {
+    borders: L.featureGroup(),
+}
 
 L.control.layers({
     "BasemapAT.grau": startLayer,
@@ -19,12 +19,14 @@ L.control.layers({
         L.tileLayer.provider("BasemapAT.orthofoto"),
         L.tileLayer.provider("BasemapAT.overlay")
     ])
-//}, {
-    //"Wetterstationen Tirol": overlay.stations
+}, {
+    "Nationalpark Hohe Tauern": overlay.borders
 }).addTo(map);
 
 
-
-let aussengrenze = L.geoJSON(GRENZE).addTo(map);
+//Aussengrenzen anzeigen in eigenem Layer
+let aussengrenze = L.geoJSON(GRENZE).addTo(overlay.borders);
+//Layer als default anzeigen
+overlay.borders.addTo(map);
 
 console.log (GRENZE)
