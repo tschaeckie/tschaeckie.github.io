@@ -140,7 +140,7 @@ pulldown.onchange = function (evt) {
 
 let drawEinkehr = function () {
     for (let einkehr of EINKEHR) {
-        //console.log(einkehr);
+        console.log(einkehr);
         let mrk = L.marker([einkehr[2], einkehr[3]], {
             icon: L.icon({
                 iconSize: [32, 37],
