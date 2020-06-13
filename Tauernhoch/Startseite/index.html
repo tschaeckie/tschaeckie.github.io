@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Aktivitäten Hohe Tauern</title>
+
+
+<!-- font link -->
+<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-providers/1.9.1/leaflet-providers.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-ajax/2.1.0/leaflet.ajax.min.js"></script>
+
+    <link rel="stylesheet" href="start.css">
+    <script src="lehrwege.js"></script>
+    <script defer src="poi.js"></script>
+    <script defer src="AGrenze2018.js"></script>
+
+    <script defer src="main.js"></script>
+
+
+
+</head>
+
+
+<body>
+    <header>
+
+        <span> Der Nationalpark Hohe Tauern und seine schönsten Seiten</span>
+        <a href="https://data.gv.at/"><img src="icons/tauern_logo.png" alt="Nationalpark Hohe Tauern" /></a>
+        <nav>
+            <p>
+                <i class="fab fa-github"></i> <a href="https://github.com/Tauernhoch/Tauernhoch.github.io">Source</a> |
+                <i class="fas fa-download"></i> <a href="https://data.gv.at/">OGD-Data</a>
+            </p>
+        </nav>
+
+    </header>
+
+    <header2>
+
+
+        <img id="bild 1" src="images/sonnenaufgang.jpg" alt="Sonnenaufgang Nationalpark Hohe Tauern ">
+        <p><a href="https://pixabay.com/de/users/monikap-2515080/;Bild monikap"></a></p>
+        <!-- <h1>Der Nationalpark und seine schönsten Seiten</h1> -->
+        <!--         <img id="bild 2" src="images/krimml_waterfalls.jpg" alt="Krimmler Wasserfaelle Nationalpark Hohe Tauern">
+         <img id="bild 3"src="images/Hohe_tauern_wald.jpg" alt="Großglockner im Hintergrund mit Wald">
+         <img id="bild 4" src="images/sonnenaufgang.jpg" alt="Sonnenaufgang im Nationalpark Hohe Tauern">
+         <img id="bild 5" src="images/heiligenblut.jpg" alt="Großglockner Blick von Heiligenblut mit Kirche"> -->
+        <!-- versuch bilder übereinander zu legen -->
+
+    </header2>
+
+    <hr>
+
+    <main>
+        <h1>Informationen zum Nationalpark</h1>
+        <p>Der Nationalpark Hohe Tauern ist der größte Nationalpark Österreichs und der Alpen sowie des gesamten
+            mitteleuropäischen Raumes außerhalb von Meeresschutzgebieten. Er umfasst weite Teile des zentralalpinen
+            Hauptkammes der Ostalpen Österreichs im Bereich der Hohen Tauern zwischen den Quellen der Isel, Möll, Mur
+            und Salzach und erstreckt sich über 100 km von Ost nach West sowie über 40 km von Nord nach Süd. Er hat bei
+            einer Fläche von über 1800 km² Anteil an den österreichischen Bundesländern Salzburg, Tirol und Kärnten.
+            Charakteristisch für den Nationalpark Hohe Tauern sind ausgedehnte Gletscherfelder (rund 130 km²),
+            eiszeitlich geformte Täler mit imposanten Talschlüssen, mächtige Schwemm- und Murenkegel, alpine Gras- und
+            Strauchheiden, aber auch ausgedehnte Wälder mit Lärchen, Fichten und Zirben.
+            Der Nationalpark Hohe Tauern besteht seit 1981 und war der erste der Nationalparks in Österreich.
+            (Quelle: wikipedia) <a href="https://de.wikipedia.org/wiki/Nationalpark_Hohe_Tauern"></a></p>
+
+
+        <h2>Übersichtskarte</h2>
+        <div id="map"></div>
+
+    </main>
+
+    <footer>
+        <hr>
+        <nav>
+            <a class="back" href="https://tauernhoch.github.io/Hauptseite/"><i class="fa fa-chevron-circle-left"></i>
+                Hauptseite</a>
+
+            <a class="next" href="https://tauernhoch.github.io/Wetter/">Wetter <i
+                    class="fa fa-chevron-circle-right"></i></a>
+
+
+
+        </nav>
+
+    </footer>
+</body>
+
+</html>

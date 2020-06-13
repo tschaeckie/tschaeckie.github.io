@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wetterinformationen</title>
+
+      <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-providers/1.9.1/leaflet-providers.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-ajax/2.1.0/leaflet.ajax.min.js"></script>
+
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@v0.72.0/dist/L.Control.Locate.min.css" /> -->
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@v0.72.0/dist/L.Control.Locate.min.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="L.Control.Locate.mapbox.scss">
+    <link rel="stylesheet" href="L.Control.Locate.scss">
+    <script src="L.Control.Locate.js"></script> -->
+
+    <link rel="stylesheet" href="leaflet.rainviewer.css">
+    <script src="leaflet.rainviewer.js"></script>
+
+    <link rel="stylesheet" href="main.css">
+    <script defer src="AGrenze2018.js"></script>
+    <script defer src="main.js"></script>
+</head>
+
+<body>
+    <header>
+
+
+        <header>
+            <span>Wetter in den Hohen Tauern </span>
+            <a href="https://data.gv.at/"><img src="icons/tauern_logo.png" alt="Nationalpark Hohe Tauern" /></a>
+            <nav>
+                <p>
+                    <i class="fab fa-github"></i> <a
+                        href="https://github.com/webmapping/webmapping.github.io/tree/master/wien">Source</a> |
+                    <i class="fas fa-download"></i> <a href="https://data.gv.at/">OGD-Data</a>
+                    <i class="fa fa-thermometer-half" aria-hidden="true"></i> <a
+                        href="https://www.data.gv.at/katalog/dataset/land-tirol_wetterstationsdatentirol">OGD-Weather Data</a>
+                </p>
+            </nav>
+        </header>
+       
+        <!-- 
+        <span>Open Government Data (OGD)</span>
+        <nav>
+            <p>
+                <i class="fas fa-download"></i> <a
+                    href="https://www.data.gv.at/katalog/dataset/land-tirol_wetterstationsdatentirol">OGD-Data</a>
+            </p>
+        </nav> -->
+
+        <div class="vertical-menu">
+            <a href="https://tauernhoch.github.io/Startseite/" class="active">Startseite</a>
+            <a href="https://tauernhoch.github.io/Hauptseite/">Hauptseite</a>
+            <a href="https://tauernhoch.github.io/Wetter/">Wetter</a>
+          </div>
+
+    </header>
+    <main>
+        <h1>Informationen zum Wetter im Nationalpark</h1>
+        <p>Um Ihre nächste Aktivität im Nationalpark Hohe Tauern besser planen zu können, behalten Sie den Niederschlag im Blick! Beim Klicken auf das Regenwolkensymbol erscheint eine Animation, die den Niederschlag der letzten 2 Stunden anzeigt.
+        </p>
+        
+        <div id="map"></div>
+        <img id="legende" src="images/legende.png" alt="Legende Rainviewer">
+        <p><a href="https://www.rainviewer.com/"></a></p>
+
+        <h3>Weitere Wetterinformationen</h3>
+        <p>Wir empfehlen zusätzlich folgende Wetterseiten:</p>
+        <ul>
+            <li><a href="https://www.zamg.ac.at/cms/de/klima/news/flaechendeckende-klimadaten-fuer-oesterreich-online"
+                    target="_blank">Testlink Wetterdaten Österreich</a>
+            </li>
+            <li>Link 2</li>
+        </ul>
+    </main>
+    <!-- <hr> -->
+    <footer>
+        <hr>
+        <nav>
+            <a class="back" href="https://tauernhoch.github.io/Hauptseite/"><i class="fa fa-chevron-circle-left"></i>
+                Hauptseite</a>
+
+            <a class="next" href="https://tauernhoch.github.io/Startseite/">Startseite <i
+                    class="fa fa-chevron-circle-right"></i></a>
+
+
+
+        </nav>
+
+    </footer>
+
+
+</body>
+
+</html>

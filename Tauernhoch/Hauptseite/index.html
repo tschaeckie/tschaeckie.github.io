@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Aktivitäten Hohe Tauern</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-providers/1.9.1/leaflet-providers.js"></script>
+
+    <!-- ajax plugin für geojson von einem server -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-ajax/2.1.0/leaflet.ajax.min.js"></script> -->
+
+    <link rel="stylesheet" href="main.css">
+    <script defer src="AGrenze2018.js"></script>
+    <script defer src="Test.js"></script>
+    <script defer src="main.js"></script>
+    
+</head>
+
+
+
+<body>
+    <header>
+        <span>Aktivitäten In den Hohen Tauern
+        </span>
+        <a href="https://hohetauern.at/de/"><img src="icons/tauern_logo.png" alt="Nationalpark Hohe Tauern" /></a>
+        <nav>
+            <p>
+                <i class="fab fa-github"></i> <a
+                    href="https://github.com/Tauernhoch/Tauernhoch.github.io">Source</a> |
+                <i class="fas fa-download"></i> <a href="https://data.gv.at/">OGD-Data</a>
+            </p>
+        </nav>
+    </header>
+    <main>
+        <h2>Grundkarte</h2>
+        <p> Die verwendeten Daten wurden sind öffentlcih auf der Seite DAta.gv.at zugänglich
+        </p>
+
+        <div id="map"></div>
+    </main>
+   
+    <footer>
+        <hr>
+        <nav>
+            <a class="back" href="https://tauernhoch.github.io/Startseite/"><i class="fa fa-chevron-circle-left"></i>
+                Startseite</a>
+
+            <a class="next" href="https://tauernhoch.github.io/Wetter/">Wetter <i class="fa fa-chevron-circle-right"></i></a>
+
+
+
+        </nav>
+
+    </footer>
+</body>
+
+
+</html>

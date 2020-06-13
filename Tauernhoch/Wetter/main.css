@@ -1,0 +1,86 @@
+body {
+    max-width: 1280px;
+    margin: auto;
+    font-family: "Open Sans", sans-serif;}
+
+    .vertical-menu {
+        width: 200px; /* Set a width if you like */
+      }
+      
+      .vertical-menu a {
+        background-color: #eee; /* Grey background color */
+        color: black; /* Black text color */
+        display: block; /* Make the links appear below each other */
+        padding: 12px; /* Add some padding */
+        text-decoration: none; /* Remove underline from links */
+      }
+      
+      .vertical-menu a:hover {
+        background-color: #ccc; /* Dark grey background on mouse-over */
+      }
+      
+      .vertical-menu a.active {
+        background-color: #4CAF50; /* Add a green color to the "active/current" link */
+        color: white;
+      }
+
+#legende {
+        position: absolute;
+        top: 550px;
+        left: 370px;
+        width: 100px;
+        height: 160px;
+    }
+
+#map {
+    width: calc(100% -2px);
+    height: 70vh;
+    border: 1px solid gray;
+}
+
+header {
+    color: #fff;
+    background-color: #000;
+    max-height: 47px;
+}
+
+header span {
+    display: inline-block;
+    font-weight: bold;
+    vertical-align: top;
+    padding: 0.65em; 
+}
+
+header nav {
+    float: right;
+    padding-right: 0.5em;
+}
+
+header nav p {
+    padding-top: 0;
+    font-size: 0.9em;
+    font-weight: bold;
+}
+
+header nav a {
+    color: white;
+}
+
+
+/* main h1 {
+    padding-right: 0.5em;
+} */
+
+footer {
+    width: 100%;
+    padding: 1em 0 3em 0;
+}
+
+footer .back {
+    float: left;
+}
+
+footer .next {
+    float: right;
+}
+
