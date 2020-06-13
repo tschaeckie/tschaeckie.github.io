@@ -31,6 +31,10 @@ overlay.borders.addTo(map);
 
 //console.log (GRENZE)
 
+//Maßstab
+L.control.scale({
+    imperial: false
+}).addTo(map);
 
 // Rainviewer
 L.control.rainviewer({
@@ -43,3 +47,5 @@ L.control.rainviewer({
     animationInterval: 500,
     opacity: 0.5
 }).addTo(map);
+
+
