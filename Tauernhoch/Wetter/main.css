@@ -71,6 +71,8 @@ main h1 {
     text-align: left;
         position: relative; 
         right: -220px;
+        color: green;
+        text-shadow: 2px 1px 1px black;
 }
 
 #einrueck {
