@@ -15,6 +15,8 @@ let overlay = {
 L.control.layers({
     "BasemapAT.grau": startLayer,
     "BasemapAT": L.tileLayer.provider("BasemapAT"),
+    "BasemapAT.surface": L.tileLayer.provider("BasemapAT.surface"),
+    "BasemapAT.highdpi": L.tileLayer.provider("BasemapAT.highdpi"),
     "BasemapAT.orthofoto+overlay": L.layerGroup([
         L.tileLayer.provider("BasemapAT.orthofoto"),
         L.tileLayer.provider("BasemapAT.overlay")
