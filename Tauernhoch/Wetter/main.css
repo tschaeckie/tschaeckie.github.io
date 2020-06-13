@@ -67,9 +67,18 @@ header nav a {
 }
 
 
-/* main h1 {
-    padding-right: 0.5em;
-} */
+main h1 {
+    text-align: left;
+        position: relative; 
+        right: -220px;
+}
+
+#einrueck {
+    text-align: left;
+    position: relative; 
+    right: -220px;
+    width: 83%;
+}
 
 footer {
     width: 100%;
